@@ -33,6 +33,23 @@ Projekt je isporučen u direktoriju `hotel-lero-flora2` i sastoji se od sljedeć
 - run_update_demo.sh  
   Bash skripta za automatizirano pokretanje demonstracije iz datoteke update_demo.cmd.
 
+## Korištene tehnologije i alati
+
+Projekt je razvijen i testiran korištenjem sljedećih tehnologija i alata:
+
+- **Flora-2**  
+  Korišten je kao primarni alat za implementaciju deklarativnog i logičkog programiranja. U Flora-2 okruženju definirana je baza znanja temeljena na F-logici, uključujući shemu sustava, poslovna pravila, izvedene predikate i mehanizme zaključivanja.
+
+- **XSB Prolog**  
+  Flora-2 se oslanja na XSB Prolog kao izvršno okruženje za logičko zaključivanje. XSB Prolog omogućuje učinkovitu evaluaciju pravila, tablični mehanizam (tabling) te stabilno izvođenje složenih upita nad bazom znanja.
+
+- **Ubuntu Linux**  
+  Operacijski sustav korišten za razvoj i testiranje projekta. Bash skripte za automatizirano pokretanje demonstracija prilagođene su Linux okruženju.
+
+- **Emacs**  
+  Korišten kao razvojno okruženje za uređivanje `.flr`, `.cmd` i `.sh` datoteka, uz podršku za rad s Prolog/Flora-2 sintaksom i jednostavno pokretanje alata iz terminala.
+
+Navedeni alati predstavljaju **preduvjete za pokretanje projekta i izvršavanje demonstracijskih skripti**. Za ispravan rad sustava potrebno je imati instalirane Flora-2 i XSB Prolog u Linux okruženju s podrškom za bash skripte.
 
 ## Pokretanje sustava u Flora-2 okruženju
 
