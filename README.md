@@ -53,7 +53,7 @@ Navedeni alati predstavljaju **preduvjete za pokretanje projekta i izvršavanje 
 
 ## Pokretanje sustava u Flora-2 okruženju
 
-Rad sustava može se testirati interaktivno kroz Flora-2 sučelje ili automatizirano pomoću pripremljenih skripti. Nakon raspakiravanja projekta potrebno je pozicionirati se u direktorij projekta i pokrenuti Flora-2 okruženje.
+Rad sustava može se testirati interaktivno kroz Flora-2 sučelje ili automatizirano pomoću pripremljenih skripti. Nakon raspakiravanja projekta unutar Ubuntu Linuxa sa svim potrebnim instaliranim preduvjetima, potrebno je pozicionirati se u direktorij projekta i pokrenuti Flora-2 okruženje.
 
 Primjer osnovnog pokretanja:
 
