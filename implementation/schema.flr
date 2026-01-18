@@ -1,0 +1,53 @@
+person.
+object.
+
+employee::person.
+manager::employee.
+department::object.
+position::object.
+contract::object.
+leaveRequest::object.
+
+employee[
+  empId => \integer,
+  firstName => \symbol,
+  lastName => \symbol,
+  worksIn => department,
+  holdsPos => position,
+  employmentType => \symbol,
+  hireYear => \integer,
+  yearsOfService => \integer,
+  isActive => \symbol,
+  baseSalaryEUR => \integer,
+  bonusPercent => \integer,
+  bonusAmount => \integer,
+  leaveEntitlement => \integer,
+  leaveUsed => \integer,
+  leaveRemaining => \integer,
+  hasContract => contract
+].
+
+department[
+  deptName => \symbol,
+  hasManager => employee
+].
+
+position[
+  title => \symbol,
+  level => \integer
+].
+
+contract[
+  forEmployee => employee,
+  status => \symbol,
+  startYear => \integer,
+  endYear => \integer
+].
+
+leaveRequest[
+  submittedBy => employee,
+  year => \integer,
+  days => \integer,
+  status => \symbol,
+  approvedBy => manager
+].

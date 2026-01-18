@@ -1,0 +1,4 @@
+// main.flr
+#include "schema.flr"
+#include "rules.flr"
+#include "data.flr"

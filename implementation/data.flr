@@ -1,0 +1,532 @@
+front_office:department[deptName->FrontOffice].
+wellness:department[deptName->Wellness].
+housekeeping:department[deptName->Housekeeping].
+restaurant:department[deptName->Restaurant].
+bar:department[deptName->Bar].
+kitchen:department[deptName->Kitchen].
+maintenance:department[deptName->Maintenance].
+procurement:department[deptName->Procurement].
+marketing:department[deptName->Marketing].
+hr:department[deptName->HumanResources].
+finance:department[deptName->FinanceAccounting].
+sales:department[deptName->Sales].
+management:department[deptName->Management].
+
+front_office_manager_pos:position[title->FrontOfficeManager, level->4].
+receptionist_pos:position[title->Receptionist, level->2].
+concierge_pos:position[title->Concierge, level->2].
+porter_pos:position[title->Porter, level->1].
+night_guard_pos:position[title->NightGuard, level->2].
+
+wellness_manager_pos:position[title->WellnessManager, level->4].
+therapist_pos:position[title->WellnessTherapist, level->2].
+
+housekeeping_manager_pos:position[title->HousekeepingManager, level->4].
+housekeeper_pos:position[title->Housekeeper, level->1].
+
+restaurant_manager_pos:position[title->RestaurantManager, level->4].
+waiter_pos:position[title->Waiter, level->2].
+sommelier_pos:position[title->Sommelier, level->3].
+
+bar_manager_pos:position[title->BarManager, level->4].
+bartender_pos:position[title->Bartender, level->2].
+bar_waiter_pos:position[title->BarWaiter, level->2].
+
+chef_pos:position[title->Chef, level->4].
+sous_chef_pos:position[title->SousChef, level->3].
+
+maintenance_manager_pos:position[title->MaintenanceManager, level->4].
+maintenance_technician_pos:position[title->MaintenanceTechnician, level->2].
+
+procurement_manager_pos:position[title->ProcurementManager, level->4].
+procurement_officer_pos:position[title->ProcurementOfficer, level->2].
+
+marketing_manager_pos:position[title->MarketingManager, level->4].
+marketing_specialist_pos:position[title->MarketingSpecialist, level->2].
+
+hr_manager_pos:position[title->HRManager, level->4].
+hr_specialist_pos:position[title->HRSpecialist, level->2].
+
+finance_manager_pos:position[title->FinanceManager, level->4].
+accountant_pos:position[title->Accountant, level->2].
+
+sales_manager_pos:position[title->SalesManager, level->4].
+sales_specialist_pos:position[title->SalesSpecialist, level->2].
+
+hotel_director_pos:position[title->HotelDirector, level->5].
+deputy_director_pos:position[title->DeputyDirector, level->5].
+
+director_petar:employee[
+  empId->1200, firstName->Petar, lastName->Kovacevic,
+  worksIn->management, holdsPos->hotel_director_pos,
+  employmentType->full_time,
+  hireYear->2010, yearsOfService->16,
+  isActive->yes,
+  baseSalaryEUR->3200,
+  leaveUsed->5
+].
+
+deputy_mirna:employee[
+  empId->1201, firstName->Mirna, lastName->Babic,
+  worksIn->management, holdsPos->deputy_director_pos,
+  employmentType->full_time,
+  hireYear->2016, yearsOfService->10,
+  isActive->yes,
+  baseSalaryEUR->2600,
+  leaveUsed->6
+].
+
+ivana:employee[
+  empId->1001, firstName->Ivana, lastName->Horvat,
+  worksIn->front_office, holdsPos->front_office_manager_pos,
+  employmentType->full_time,
+  hireYear->2014, yearsOfService->12,
+  isActive->yes,
+  baseSalaryEUR->1900,
+  leaveUsed->6
+].
+
+nina:employee[
+  empId->1010, firstName->Nina, lastName->Basic,
+  worksIn->front_office, holdsPos->receptionist_pos,
+  employmentType->full_time,
+  hireYear->2022, yearsOfService->3,
+  isActive->yes,
+  baseSalaryEUR->1150,
+  leaveUsed->4
+].
+
+tomislav:employee[
+  empId->1011, firstName->Tomislav, lastName->Lukic,
+  worksIn->front_office, holdsPos->concierge_pos,
+  employmentType->full_time,
+  hireYear->2021, yearsOfService->4,
+  isActive->yes,
+  baseSalaryEUR->1250,
+  leaveUsed->7
+].
+
+ante:employee[
+  empId->1012, firstName->Ante, lastName->Vlahovic,
+  worksIn->front_office, holdsPos->porter_pos,
+  employmentType->full_time,
+  hireYear->2020, yearsOfService->6,
+  isActive->yes,
+  baseSalaryEUR->1050,
+  leaveUsed->3
+].
+
+niksa:employee[
+  empId->1013, firstName->Niksa, lastName->Basic,
+  worksIn->front_office, holdsPos->night_guard_pos,
+  employmentType->full_time,
+  hireYear->2019, yearsOfService->7,
+  isActive->yes,
+  baseSalaryEUR->1100,
+  leaveUsed->2
+].
+
+ana:employee[
+  empId->1003, firstName->Ana, lastName->Anic,
+  worksIn->front_office, holdsPos->receptionist_pos,
+  employmentType->part_time,
+  hireYear->2025, yearsOfService->1,
+  isActive->yes,
+  baseSalaryEUR->900,
+  leaveUsed->0
+].
+
+karla:employee[
+  empId->1020, firstName->Karla, lastName->Juric,
+  worksIn->wellness, holdsPos->wellness_manager_pos,
+  employmentType->full_time,
+  hireYear->2018, yearsOfService->8,
+  isActive->yes,
+  baseSalaryEUR->1600,
+  leaveUsed->9
+].
+
+petra:employee[
+  empId->1005, firstName->Petra, lastName->Novak,
+  worksIn->wellness, holdsPos->therapist_pos,
+  employmentType->full_time,
+  hireYear->2019, yearsOfService->7,
+  isActive->no,
+  baseSalaryEUR->1200,
+  leaveUsed->8
+].
+
+luka:employee[
+  empId->1004, firstName->Luka, lastName->Kovac,
+  worksIn->housekeeping, holdsPos->housekeeping_manager_pos,
+  employmentType->seasonal,
+  hireYear->2021, yearsOfService->5,
+  isActive->yes,
+  baseSalaryEUR->1300,
+  leaveUsed->4
+].
+
+marija:employee[
+  empId->1030, firstName->Marija, lastName->Peric,
+  worksIn->housekeeping, holdsPos->housekeeper_pos,
+  employmentType->full_time,
+  hireYear->2024, yearsOfService->2,
+  isActive->yes,
+  baseSalaryEUR->1000,
+  leaveUsed->2
+].
+
+dario:employee[
+  empId->1040, firstName->Dario, lastName->Bebek,
+  worksIn->restaurant, holdsPos->restaurant_manager_pos,
+  employmentType->full_time,
+  hireYear->2017, yearsOfService->9,
+  isActive->yes,
+  baseSalaryEUR->1750,
+  leaveUsed->11
+].
+
+marko:employee[
+  empId->1002, firstName->Marko, lastName->Maric,
+  worksIn->restaurant, holdsPos->waiter_pos,
+  employmentType->full_time,
+  hireYear->2023, yearsOfService->2,
+  isActive->yes,
+  baseSalaryEUR->1400,
+  leaveUsed->10
+].
+
+filip:employee[
+  empId->1041, firstName->Filip, lastName->Vuk,
+  worksIn->restaurant, holdsPos->sommelier_pos,
+  employmentType->full_time,
+  hireYear->2020, yearsOfService->6,
+  isActive->yes,
+  baseSalaryEUR->1550,
+  leaveUsed->6
+].
+
+ivona:employee[
+  empId->1050, firstName->Ivona, lastName->Racic,
+  worksIn->bar, holdsPos->bar_manager_pos,
+  employmentType->full_time,
+  hireYear->2016, yearsOfService->10,
+  isActive->yes,
+  baseSalaryEUR->1650,
+  leaveUsed->7
+].
+
+mate:employee[
+  empId->1051, firstName->Mate, lastName->Sutalo,
+  worksIn->bar, holdsPos->bartender_pos,
+  employmentType->full_time,
+  hireYear->2022, yearsOfService->3,
+  isActive->yes,
+  baseSalaryEUR->1200,
+  leaveUsed->3
+].
+
+sara:employee[
+  empId->1052, firstName->Sara, lastName->Vidovic,
+  worksIn->bar, holdsPos->bar_waiter_pos,
+  employmentType->part_time,
+  hireYear->2024, yearsOfService->2,
+  isActive->yes,
+  baseSalaryEUR->900,
+  leaveUsed->1
+].
+
+igor:employee[
+  empId->1060, firstName->Igor, lastName->Santic,
+  worksIn->kitchen, holdsPos->chef_pos,
+  employmentType->full_time,
+  hireYear->2015, yearsOfService->11,
+  isActive->yes,
+  baseSalaryEUR->2000,
+  leaveUsed->10
+].
+
+vanja:employee[
+  empId->1061, firstName->Vanja, lastName->Basic,
+  worksIn->kitchen, holdsPos->sous_chef_pos,
+  employmentType->full_time,
+  hireYear->2021, yearsOfService->5,
+  isActive->yes,
+  baseSalaryEUR->1600,
+  leaveUsed->5
+].
+
+stipe:employee[
+  empId->1070, firstName->Stipe, lastName->Radic,
+  worksIn->maintenance, holdsPos->maintenance_manager_pos,
+  employmentType->full_time,
+  hireYear->2016, yearsOfService->10,
+  isActive->yes,
+  baseSalaryEUR->1700,
+  leaveUsed->6
+].
+
+ivan_maint:employee[
+  empId->1071, firstName->Ivan, lastName->Maric,
+  worksIn->maintenance, holdsPos->maintenance_technician_pos,
+  employmentType->full_time,
+  hireYear->2023, yearsOfService->2,
+  isActive->yes,
+  baseSalaryEUR->1200,
+  leaveUsed->2
+].
+
+marina:employee[
+  empId->1080, firstName->Marina, lastName->Knez,
+  worksIn->procurement, holdsPos->procurement_manager_pos,
+  employmentType->full_time,
+  hireYear->2017, yearsOfService->9,
+  isActive->yes,
+  baseSalaryEUR->1650,
+  leaveUsed->5
+].
+
+toni:employee[
+  empId->1081, firstName->Toni, lastName->Basic,
+  worksIn->procurement, holdsPos->procurement_officer_pos,
+  employmentType->full_time,
+  hireYear->2024, yearsOfService->2,
+  isActive->yes,
+  baseSalaryEUR->1150,
+  leaveUsed->1
+].
+
+helena:employee[
+  empId->1090, firstName->Helena, lastName->Soldo,
+  worksIn->marketing, holdsPos->marketing_manager_pos,
+  employmentType->full_time,
+  hireYear->2018, yearsOfService->8,
+  isActive->yes,
+  baseSalaryEUR->1700,
+  leaveUsed->7
+].
+
+lea:employee[
+  empId->1091, firstName->Lea, lastName->Katic,
+  worksIn->marketing, holdsPos->marketing_specialist_pos,
+  employmentType->full_time,
+  hireYear->2022, yearsOfService->4,
+  isActive->yes,
+  baseSalaryEUR->1250,
+  leaveUsed->3
+].
+
+maja:employee[
+  empId->1100, firstName->Maja, lastName->Perkovic,
+  worksIn->hr, holdsPos->hr_manager_pos,
+  employmentType->full_time,
+  hireYear->2016, yearsOfService->10,
+  isActive->yes,
+  baseSalaryEUR->1800,
+  leaveUsed->6
+].
+
+igor_hr:employee[
+  empId->1101, firstName->Igor, lastName->Bartos,
+  worksIn->hr, holdsPos->hr_specialist_pos,
+  employmentType->full_time,
+  hireYear->2023, yearsOfService->2,
+  isActive->yes,
+  baseSalaryEUR->1300,
+  leaveUsed->2
+].
+
+marija_fin:employee[
+  empId->1110, firstName->Marija, lastName->Fin,
+  worksIn->finance, holdsPos->finance_manager_pos,
+  employmentType->full_time,
+  hireYear->2015, yearsOfService->11,
+  isActive->yes,
+  baseSalaryEUR->2000,
+  leaveUsed->7
+].
+
+ivana_acc:employee[
+  empId->1111, firstName->Ivana, lastName->Acc,
+  worksIn->finance, holdsPos->accountant_pos,
+  employmentType->full_time,
+  hireYear->2021, yearsOfService->5,
+  isActive->yes,
+  baseSalaryEUR->1400,
+  leaveUsed->4
+].
+
+pero_sales:employee[
+  empId->1120, firstName->Pero, lastName->Sales,
+  worksIn->sales, holdsPos->sales_manager_pos,
+  employmentType->full_time,
+  hireYear->2016, yearsOfService->10,
+  isActive->yes,
+  baseSalaryEUR->1900,
+  leaveUsed->8
+].
+
+iva_sales:employee[
+  empId->1121, firstName->Iva, lastName->Sales,
+  worksIn->sales, holdsPos->sales_specialist_pos,
+  employmentType->full_time,
+  hireYear->2022, yearsOfService->4,
+  isActive->yes,
+  baseSalaryEUR->1300,
+  leaveUsed->2
+].
+
+student_lana:employee[
+  empId->1300, firstName->Lana, lastName->Klaric,
+  worksIn->front_office, holdsPos->receptionist_pos,
+  employmentType->student,
+  hireYear->2026, yearsOfService->0,
+  isActive->yes,
+  baseSalaryEUR->700,
+  leaveUsed->0
+].
+
+student_ivan:employee[
+  empId->1301, firstName->Ivan, lastName->Jovic,
+  worksIn->restaurant, holdsPos->waiter_pos,
+  employmentType->student,
+  hireYear->2026, yearsOfService->0,
+  isActive->yes,
+  baseSalaryEUR->750,
+  leaveUsed->0
+].
+
+front_office[hasManager->ivana].
+wellness[hasManager->karla].
+housekeeping[hasManager->luka].
+restaurant[hasManager->dario].
+bar[hasManager->ivona].
+kitchen[hasManager->igor].
+maintenance[hasManager->stipe].
+procurement[hasManager->marina].
+marketing[hasManager->helena].
+hr[hasManager->maja].
+finance[hasManager->marija_fin].
+sales[hasManager->pero_sales].
+management[hasManager->director_petar].
+
+c_director_1:contract[forEmployee->director_petar, status->active, startYear->2010, endYear->0].
+director_petar[hasContract->c_director_1].
+
+c_deputy_1:contract[forEmployee->deputy_mirna, status->active, startYear->2016, endYear->0].
+deputy_mirna[hasContract->c_deputy_1].
+
+c_ivana_1:contract[forEmployee->ivana, status->active, startYear->2014, endYear->0].
+ivana[hasContract->c_ivana_1].
+
+c_nina_1:contract[forEmployee->nina, status->active, startYear->2022, endYear->0].
+nina[hasContract->c_nina_1].
+
+c_tomislav_1:contract[forEmployee->tomislav, status->active, startYear->2021, endYear->0].
+tomislav[hasContract->c_tomislav_1].
+
+c_ante_1:contract[forEmployee->ante, status->active, startYear->2020, endYear->0].
+ante[hasContract->c_ante_1].
+
+c_niksa_1:contract[forEmployee->niksa, status->active, startYear->2019, endYear->0].
+niksa[hasContract->c_niksa_1].
+
+c_ana_1:contract[forEmployee->ana, status->active, startYear->2025, endYear->0].
+c_ana_2:contract[forEmployee->ana, status->active, startYear->2026, endYear->0].
+ana[hasContract->c_ana_1].
+ana[hasContract->c_ana_2].
+
+c_karla_1:contract[forEmployee->karla, status->active, startYear->2018, endYear->0].
+karla[hasContract->c_karla_1].
+
+c_petra_1:contract[forEmployee->petra, status->expired, startYear->2019, endYear->2024].
+petra[hasContract->c_petra_1].
+
+c_luka_1:contract[forEmployee->luka, status->active, startYear->2021, endYear->2026].
+luka[hasContract->c_luka_1].
+
+c_marija_1:contract[forEmployee->marija, status->active, startYear->2024, endYear->0].
+marija[hasContract->c_marija_1].
+
+c_dario_1:contract[forEmployee->dario, status->active, startYear->2017, endYear->0].
+dario[hasContract->c_dario_1].
+
+c_marko_1:contract[forEmployee->marko, status->active, startYear->2023, endYear->0].
+marko[hasContract->c_marko_1].
+
+c_filip_1:contract[forEmployee->filip, status->active, startYear->2020, endYear->0].
+filip[hasContract->c_filip_1].
+
+c_ivona_1:contract[forEmployee->ivona, status->active, startYear->2016, endYear->0].
+ivona[hasContract->c_ivona_1].
+
+c_mate_1:contract[forEmployee->mate, status->active, startYear->2022, endYear->0].
+mate[hasContract->c_mate_1].
+
+c_sara_1:contract[forEmployee->sara, status->active, startYear->2024, endYear->0].
+sara[hasContract->c_sara_1].
+
+c_igor_1:contract[forEmployee->igor, status->active, startYear->2015, endYear->0].
+igor[hasContract->c_igor_1].
+
+c_vanja_1:contract[forEmployee->vanja, status->active, startYear->2021, endYear->0].
+vanja[hasContract->c_vanja_1].
+
+c_stipe_1:contract[forEmployee->stipe, status->active, startYear->2016, endYear->0].
+stipe[hasContract->c_stipe_1].
+
+c_ivan_maint_1:contract[forEmployee->ivan_maint, status->active, startYear->2023, endYear->0].
+ivan_maint[hasContract->c_ivan_maint_1].
+
+c_marina_1:contract[forEmployee->marina, status->active, startYear->2017, endYear->0].
+marina[hasContract->c_marina_1].
+
+c_toni_1:contract[forEmployee->toni, status->active, startYear->2024, endYear->0].
+toni[hasContract->c_toni_1].
+
+c_helena_1:contract[forEmployee->helena, status->active, startYear->2018, endYear->0].
+helena[hasContract->c_helena_1].
+
+c_lea_1:contract[forEmployee->lea, status->active, startYear->2022, endYear->0].
+lea[hasContract->c_lea_1].
+
+c_maja_1:contract[forEmployee->maja, status->active, startYear->2016, endYear->0].
+maja[hasContract->c_maja_1].
+
+c_igor_hr_1:contract[forEmployee->igor_hr, status->active, startYear->2023, endYear->0].
+igor_hr[hasContract->c_igor_hr_1].
+
+c_marija_fin_1:contract[forEmployee->marija_fin, status->active, startYear->2015, endYear->0].
+marija_fin[hasContract->c_marija_fin_1].
+
+c_ivana_acc_1:contract[forEmployee->ivana_acc, status->active, startYear->2021, endYear->0].
+ivana_acc[hasContract->c_ivana_acc_1].
+
+c_pero_sales_1:contract[forEmployee->pero_sales, status->active, startYear->2016, endYear->0].
+pero_sales[hasContract->c_pero_sales_1].
+
+c_iva_sales_1:contract[forEmployee->iva_sales, status->active, startYear->2022, endYear->0].
+iva_sales[hasContract->c_iva_sales_1].
+
+c_student_lana_1:contract[forEmployee->student_lana, status->active, startYear->2026, endYear->2026].
+student_lana[hasContract->c_student_lana_1].
+
+c_student_ivan_1:contract[forEmployee->student_ivan, status->active, startYear->2026, endYear->2026].
+student_ivan[hasContract->c_student_ivan_1].
+
+req1:leaveRequest[submittedBy->marko, year->2026, days->5, status->Approved, approvedBy->dario].
+req2:leaveRequest[submittedBy->ana, year->2026, days->10, status->Pending].
+req3:leaveRequest[submittedBy->petra, year->2026, days->3, status->Pending].
+req4:leaveRequest[submittedBy->ivana, year->2026, days->8, status->Pending].
+req5:leaveRequest[submittedBy->sara, year->2026, days->7, status->Approved, approvedBy->ivona].
+req6:leaveRequest[submittedBy->vanja, year->2026, days->12, status->Approved, approvedBy->igor].
+req7:leaveRequest[submittedBy->ivan_maint, year->2026, days->4, status->Approved, approvedBy->stipe].
+req8:leaveRequest[submittedBy->lea, year->2026, days->6, status->Approved, approvedBy->helena].
+req9:leaveRequest[submittedBy->igor_hr, year->2026, days->5, status->Approved, approvedBy->maja].
+req10:leaveRequest[submittedBy->iva_sales, year->2026, days->6, status->Approved, approvedBy->pero_sales].
+
+req11:leaveRequest[submittedBy->nina, year->2026, days->2, status->Approved, approvedBy->deputy_mirna].
+req12:leaveRequest[submittedBy->student_lana, year->2026, days->1, status->Pending].
+req13:leaveRequest[submittedBy->student_ivan, year->2026, days->2, status->Pending].
+
+mate[worksIn->restaurant].

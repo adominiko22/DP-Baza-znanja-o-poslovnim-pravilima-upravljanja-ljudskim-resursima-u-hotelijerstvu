@@ -1,0 +1,224 @@
+isStudent(?E) :-
+  ?E:employee[employmentType->student].
+
+directorActive :-
+  ?_D:employee[holdsPos->hotel_director_pos, isActive->yes].
+
+directorInactive :-
+  \+ directorActive.
+
+topManagement(?E) :-
+  ?E:employee[holdsPos->?P, isActive->yes],
+  ?P:position[level->?L],
+  ?L >= 5,
+  \+ isStudent(?E).
+
+?E:manager :-
+  ?_D:department[hasManager->?E],
+  ?E:employee[isActive->yes],
+  \+ isStudent(?E).
+
+?E:manager :-
+  topManagement(?E).
+
+violation(studentCannotBeManager, ?E) :-
+  isStudent(?E),
+  ?E:manager.
+
+violation(managerNotEligible, ?D) :-
+  ?D:department[hasManager->?M],
+  \+ (?M:manager).
+
+activeContract(?C) :-
+  ?C:contract[status->active].
+
+hasActiveContract(?E) :-
+  ?E:employee[hasContract->?C],
+  activeContract(?C).
+
+violation(multipleActiveContracts, ?E) :-
+  ?E:employee[hasContract->?C1],
+  ?E:employee[hasContract->?C2],
+  ?C1 \= ?C2,
+  activeContract(?C1),
+  activeContract(?C2).
+
+violation(studentContractMustHaveEndYear, ?C) :-
+  ?C:contract[forEmployee->?E, status->active, endYear->0],
+  isStudent(?E).
+
+?E[leaveEntitlement->0] :-
+  isStudent(?E).
+
+?E[leaveEntitlement->20] :-
+  ?E:employee[yearsOfService->?Y],
+  \+ isStudent(?E),
+  ?Y =< 1.
+
+?E[leaveEntitlement->22] :-
+  ?E:employee[yearsOfService->?Y],
+  \+ isStudent(?E),
+  ?Y >= 2,
+  ?Y =< 4.
+
+?E[leaveEntitlement->24] :-
+  ?E:employee[yearsOfService->?Y],
+  \+ isStudent(?E),
+  ?Y >= 5,
+  ?Y =< 9.
+
+?E[leaveEntitlement->26] :-
+  ?E:employee[yearsOfService->?Y],
+  \+ isStudent(?E),
+  ?Y >= 10.
+
+?E[leaveRemaining->?R] :-
+  ?E[leaveEntitlement->?Ent],
+  ?E:employee[leaveUsed->?Used],
+  ?R \is ?Ent - ?Used.
+
+violation(leaveUsedExceedsEntitlement, ?E) :-
+  ?E[leaveEntitlement->?Ent],
+  ?E:employee[leaveUsed->?Used],
+  ?Used > ?Ent.
+
+baseBonusByLevel(?Lvl, 15) :-
+  ?Lvl >= 4.
+
+baseBonusByLevel(?Lvl, 5) :-
+  ?Lvl < 4.
+
+extraBonusByService(?Y, 2) :-
+  ?Y >= 5.
+
+extraBonusByService(?Y, 0) :-
+  ?Y < 5.
+
+
+?E[bonusPercent->0] :-
+  isStudent(?E).
+
+?E[bonusPercent->0] :-
+  ?E:employee[isActive->no].
+
+?E[bonusPercent->?P] :-
+  ?E:employee[holdsPos->?Pos, yearsOfService->?Y, isActive->yes],
+  \+ isStudent(?E),
+  ?Pos:position[level->?Lvl],
+  baseBonusByLevel(?Lvl, ?B),
+  extraBonusByService(?Y, ?X),
+  ?P \is ?B + ?X.
+
+?E[bonusAmount->0] :-
+  isStudent(?E).
+
+?E[bonusAmount->0] :-
+  ?E:employee[isActive->no].
+
+?E[bonusAmount->?A] :-
+  ?E[bonusPercent->?P],
+  \+ isStudent(?E),
+  ?E:employee[baseSalaryEUR->?S, isActive->yes],
+  ?A \is (?S * ?P) / 100.
+
+deptManagerOfEmployee(?E, ?M) :-
+  ?E:employee[worksIn->?D],
+  ?D:department[hasManager->?M].
+
+isDirector(?A) :-
+  ?A:employee[holdsPos->hotel_director_pos, isActive->yes].
+
+isDeputyDirector(?A) :-
+  ?A:employee[holdsPos->deputy_director_pos, isActive->yes].
+
+validLeaveApprover(?A, ?E) :-
+  deptManagerOfEmployee(?E, ?A),
+  ?A:manager.
+
+validLeaveApprover(?A, ?_E) :-
+  isDirector(?A).
+
+validLeaveApprover(?A, ?_E) :-
+  isDeputyDirector(?A),
+  directorInactive.
+
+violation(studentLeaveNotAllowed, ?R) :-
+  ?R:leaveRequest[submittedBy->?E],
+  isStudent(?E).
+
+violation(leaveRequestNoActiveContract, ?R) :-
+  ?R:leaveRequest[submittedBy->?E],
+  \+ hasActiveContract(?E).
+
+violation(departmentWithoutManager, ?R) :-
+  ?R:leaveRequest[submittedBy->?E],
+  \+ deptManagerOfEmployee(?E, ?_AnyMgr).
+
+?R[status->Approved, approvedBy->?A] :-
+  ?R:leaveRequest[submittedBy->?E, status->Pending],
+  \+ isStudent(?E),
+  hasActiveContract(?E),
+  ?R:leaveRequest[days->?D],
+  ?E[leaveRemaining->?Rem],
+  ?D =< ?Rem,
+  validLeaveApprover(?A, ?E),
+  ?A \= ?E.
+
+violation(wrongLeaveApprover, ?R) :-
+  ?R:leaveRequest[submittedBy->?E, status->Approved, approvedBy->?A],
+  \+ validLeaveApprover(?A, ?E).
+
+violation(leaveRequestExceedsRemaining, ?R) :-
+  ?R:leaveRequest[submittedBy->?E, days->?D, status->Pending],
+  ?E[leaveRemaining->?Rem],
+  ?D > ?Rem.
+
+
+allowedPosDept(front_office_manager_pos, front_office).
+allowedPosDept(receptionist_pos, front_office).
+allowedPosDept(concierge_pos, front_office).
+allowedPosDept(porter_pos, front_office).
+allowedPosDept(night_guard_pos, front_office).
+
+allowedPosDept(wellness_manager_pos, wellness).
+allowedPosDept(therapist_pos, wellness).
+
+allowedPosDept(housekeeping_manager_pos, housekeeping).
+allowedPosDept(housekeeper_pos, housekeeping).
+
+allowedPosDept(restaurant_manager_pos, restaurant).
+allowedPosDept(waiter_pos, restaurant).
+allowedPosDept(sommelier_pos, restaurant).
+
+allowedPosDept(bar_manager_pos, bar).
+allowedPosDept(bartender_pos, bar).
+allowedPosDept(bar_waiter_pos, bar).
+
+allowedPosDept(chef_pos, kitchen).
+allowedPosDept(sous_chef_pos, kitchen).
+
+allowedPosDept(maintenance_manager_pos, maintenance).
+allowedPosDept(maintenance_technician_pos, maintenance).
+
+allowedPosDept(procurement_manager_pos, procurement).
+allowedPosDept(procurement_officer_pos, procurement).
+
+allowedPosDept(marketing_manager_pos, marketing).
+allowedPosDept(marketing_specialist_pos, marketing).
+
+allowedPosDept(hr_manager_pos, hr).
+allowedPosDept(hr_specialist_pos, hr).
+
+allowedPosDept(finance_manager_pos, finance).
+allowedPosDept(accountant_pos, finance).
+
+allowedPosDept(sales_manager_pos, sales).
+allowedPosDept(sales_specialist_pos, sales).
+
+allowedPosDept(hotel_director_pos, management).
+allowedPosDept(deputy_director_pos, management).
+
+
+violation(positionDepartmentMismatch, ?E) :-
+  ?E:employee[holdsPos->?P, worksIn->?D],
+  \+ allowedPosDept(?P, ?D).
